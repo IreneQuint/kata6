@@ -9,11 +9,11 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
 
-public class HistogramDisplay extends ApplicationFrame {
+public class HistogramDisplay <T> extends ApplicationFrame {
 
-    private final Histogram<String> histogram;
+    private final Histogram<T> histogram;
 
-    public HistogramDisplay(Histogram<String> histogram) {
+    public HistogramDisplay(Histogram<T> histogram) {
         super("HISTOGRAM");
         this.histogram = histogram;
         setContentPane(createPanel());

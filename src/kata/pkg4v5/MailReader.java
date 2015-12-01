@@ -9,16 +9,17 @@ import java.util.ArrayList;
 
 public class MailReader {
     
-    public static ArrayList <String> read(String name) throws FileNotFoundException, IOException{
-        ArrayList <String> mailList = new ArrayList<>();
+    public static ArrayList <Person> read(String name) throws FileNotFoundException, IOException{
+        ArrayList <Person> people = new ArrayList<>();
         BufferedReader reader;
         reader = new BufferedReader(new FileReader (new File(name)));
         String mail;
+        int id = 0;
         while((mail = reader.readLine()) != null){
             if(!mail.contains("@")) continue;
-            mailList.add(mail);
+            people.add(new Person (id++,mail));
         }
         reader.close();
-        return mailList;
+        return people;
     }
 }
